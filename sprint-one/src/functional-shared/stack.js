@@ -13,7 +13,6 @@ var stackMethods = {};
 
 stackMethods.push = function (value) {
   this.storage[this.counter] = value;
-  console.log(this.storage);
   this.counter++;
 };
 

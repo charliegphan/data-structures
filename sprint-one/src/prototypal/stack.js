@@ -1,24 +1,29 @@
 var Stack = function () {
-  var stack = Object.create(Stack.prototype);
-  // stack.counter = 0;
-  // stack.storage = {};
+  var stack = Object.create(stackMethods);
+  stack.counter = 0;
+  stack.storage = {};
   return stack;
 };
 
-var stackMethods = {}; // why need stack Methods object?
+stackMethods = {};
 
-Stack.prototype.counter = 0;
-Stack.prototype.storage = {};
-
-Stack.prototype.push = function (value) {
-
+stackMethods.push = function (value) {
+  this.counter++;
+  this.storage[this.counter] = value;
 };
 
-Stack.prototype.pop = function () {
+stackMethods.pop = function () {
+  if (this.counter === 0) {
+    return 0;
+  }
+  var popped = this.storage[this.counter];
+  delete this.storage[this.counter];
+  this.counter--;
 
+  return popped;
 };
 
-Stack.prototype.size = function () {
+stackMethods.size = function () {
   return this.counter;
 };
 
