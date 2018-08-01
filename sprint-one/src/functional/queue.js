@@ -12,6 +12,10 @@ var Queue = function () {
   };
 
   someInstance.dequeue = function () {
+    var priority = Object.keys(storage)[0];
+    var dequeued = storage[priority];
+    delete storage[priority];
+    return dequeued;
 
   };
 
