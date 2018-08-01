@@ -13,6 +13,7 @@ var stackMethods = {};
 
 stackMethods.push = function (value) {
   this.storage[this.counter] = value;
+  console.log(this.storage);
   this.counter++;
 };
 
@@ -21,9 +22,12 @@ stackMethods.pop = function () {
     return 0;
   }
 
-  var popped = this.storage[this.counter];
-  this.counter--;
+  var popped = this.storage[this.counter - 1];
+
   delete this.storage[this.counter];
+
+  this.counter--;
+
   return popped;
 };
 
