@@ -24,6 +24,12 @@ setPrototype.remove = function(item) {
   }
 };
 
+setPrototype.removeAll = function() {
+  for (var key in this._storage) {
+    delete this._storage[key];
+  }
+};
+
 /*
  * Complexity: What is the time complexity of the above functions?
  * add - O(1)
