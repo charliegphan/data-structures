@@ -73,4 +73,35 @@ describe('hashTable', function() {
     hashTable.remove('Mr.');
     expect(hashTable._limit).to.equal(8);
   });
+
+  it('should handle multiple hash function collisions in multiple buckets', function() {
+    var v1 = 'val1';
+    var v2 = 'val2';
+    var v3 = 'val3';
+    var v4 = 'val4';
+    var oldHashFunction = window.getIndexBelowMaxForKey;
+    window.getIndexBelowMaxForKey = function() { return 0; };
+    hashTable.insert(v1, v1);
+    hashTable.insert(v2, v2);
+    hashTable.insert(v3, v3);
+    hashTable.insert(v4, v4);
+    expect(hashTable.retrieve(v1)).to.equal(v1);
+    expect(hashTable.retrieve(v2)).to.equal(v2);
+    expect(hashTable.retrieve(v3)).to.equal(v3);
+    expect(hashTable.retrieve(v4)).to.equal(v4);
+
+    window.getIndexBelowMaxForKey = function() { return 4; };
+    hashTable.insert(v1, v1);
+    hashTable.insert(v2, v2);
+    hashTable.insert(v3, v3);
+    hashTable.insert(v4, v4);
+    expect(hashTable.retrieve(v1)).to.equal(v1);
+    expect(hashTable.retrieve(v2)).to.equal(v2);
+    expect(hashTable.retrieve(v3)).to.equal(v3);
+    expect(hashTable.retrieve(v4)).to.equal(v4);
+    
+    window.getIndexBelowMaxForKey = oldHashFunction;
+  });
+
+
 });
