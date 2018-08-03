@@ -81,6 +81,14 @@ Graph.prototype.removeEdge = function(fromNode, toNode) {
     }
 };
 
+Graph.prototype.howManyEdges = function() {
+    var counter = 0;
+    for (var i = 0; i < this.nodes.length; i++) {
+        counter += this.nodes[i].connections.length;
+    }
+    return counter / 2
+}
+
 // Pass in a callback which will be executed on each node of the graph.
 Graph.prototype.forEachNode = function(cb) {
     for (var i = 0; i < this.nodes.length; i++) {
