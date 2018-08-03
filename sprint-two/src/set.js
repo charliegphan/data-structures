@@ -35,4 +35,5 @@ setPrototype.removeAll = function() {
  * add - O(1)
  * contains - O(n)
  * remove - O(n)
+ * removeAll - O(n)
  */

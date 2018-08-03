@@ -104,6 +104,7 @@ Graph.prototype.forEachNode = function(cb) {
  * hasEdge - O() //n or n^2
  * addEdge - O(n)
  * forEachNode - O(n)
+ * howManyEdges - 0(n)
  */
 
 
