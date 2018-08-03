@@ -27,6 +27,16 @@ treeMethods.contains = function(target) {
   return result;
 };
 
+treeMethods.each = function(cb) {
+  if (this.value !== undefined) {
+    cb(this.value);
+  }
+
+  for (var i =0; i < this.children.length; i++) {
+    this.children[i].each(cb);
+  }
+}
+
 
 
 /*
