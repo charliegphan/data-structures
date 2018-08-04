@@ -51,5 +51,15 @@ describe('linkedList', function() {
     expect(linkedList.contains(4)).to.equal(false);
   });
 
+  // Here are the added test cases for our list
+  it('should not try and remove if list is empty and return null', function() {
+    linkedList.addToTail(4);
+    linkedList.addToTail(5);
+    linkedList.removeHead();
+    linkedList.removeHead();
+    linkedList.removeHead();
+    expect(linkedList.removeHead()).to.equal(null);
+  });
+
   // add more tests here to test the functionality of linkedList
 });

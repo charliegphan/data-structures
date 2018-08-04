@@ -24,4 +24,15 @@ describe('set', function() {
     expect(set.contains('Mel Gibson')).to.equal(false);
   });
 
+  // Here is the functionality that we added
+  it('should remove all values from a set', function() {
+    set.add('Mel Gibson');
+    set.add('John Jones');
+    set.add('Bill Muray');
+    set.removeAll();
+    expect(set.contains('Mel Gibson')).to.equal(false);
+    expect(set.contains('John Jones')).to.equal(false);
+    expect(set.contains('Bill Muray')).to.equal(false);
+  });
+
 });

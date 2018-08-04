@@ -37,4 +37,26 @@ describe('binarySearchTree', function() {
     binarySearchTree.depthFirstLog(func);
     expect(array).to.eql([5, 2, 3, 7]);
   });
+
+  it('should have a working "contains" method on a large data set', function() {
+    binarySearchTree.insert(10);
+    binarySearchTree.insert(2);
+    binarySearchTree.insert(18);
+    binarySearchTree.insert(6);
+    binarySearchTree.insert(21);
+    binarySearchTree.insert(12);
+    binarySearchTree.insert(8);
+    binarySearchTree.insert(1);
+    binarySearchTree.insert(3);
+
+    expect(binarySearchTree.contains(21)).to.equal(true);
+    expect(binarySearchTree.contains(1)).to.equal(true);
+    expect(binarySearchTree.contains(6)).to.equal(true);
+    expect(binarySearchTree.contains(18)).to.equal(true);
+    expect(binarySearchTree.contains(12)).to.equal(true);
+
+    expect(binarySearchTree.contains(4)).to.equal(false);
+    expect(binarySearchTree.contains(9)).to.equal(false);
+    expect(binarySearchTree.contains(7)).to.equal(false);
+  });
 });
