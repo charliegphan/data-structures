@@ -29,13 +29,12 @@ treeMethods.contains = function(target) {
 
 treeMethods.each = function(cb) {
   if (this.value !== undefined) {
-    cb(this.value);
+    this.value = cb(this.value);
   }
-
   for (var i =0; i < this.children.length; i++) {
     this.children[i].each(cb);
   }
-}
+};
 
 
 
@@ -43,4 +42,5 @@ treeMethods.each = function(cb) {
  * Complexity: What is the time complexity of the above functions?
  * addChild - O(1)
  * contains - O(n)
+ * each - O(n)
  */

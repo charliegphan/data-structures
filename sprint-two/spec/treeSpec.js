@@ -48,14 +48,15 @@ describe('tree', function() {
     tree.addChild(6);
     tree.children[0].addChild(7);
     tree.children[1].addChild(8);
-    // debugger;
+    debugger;
     tree.each(function(value) {
       value += 10;
+      return value;
     })
     expect(tree.contains(15)).to.equal(true);
     expect(tree.contains(16)).to.equal(true);
-    // expect(tree.contains(17)).to.equal(true);
-    // expect(tree.contains(18)).to.equal(true);
+    expect(tree.contains(17)).to.equal(true);
+    expect(tree.contains(18)).to.equal(true);
     
   });
 });
